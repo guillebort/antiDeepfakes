@@ -52,7 +52,7 @@ async def scan_audio_file(file: UploadFile = File(...)):
         
         # Imprimimos los resultados en la terminal 
         print("\n" + "="*50)
-        print(f"🧠 VEREDICTO DE LA IA:")
+        print(f"VEREDICTO DE LA IA:")
         print(resultados)
         print("="*50 + "\n")
         
@@ -70,7 +70,7 @@ async def scan_audio_file(file: UploadFile = File(...)):
             
         #Imprimimos el error exacto en la terminal para poder diagnosticarlo
         import traceback
-        print("\n❌ [ERROR CRÍTICO EN LA IA] Detalles del fallo:")
+        print("\n[ERROR CRÍTICO EN LA IA] Detalles del fallo:")
         traceback.print_exc()
         print("-" * 50)
         
