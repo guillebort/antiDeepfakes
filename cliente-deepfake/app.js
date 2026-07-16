@@ -18,7 +18,7 @@ btnGrabar.addEventListener('click', async () => {
             contenedorInicio.style.display = "none";
             
             consolaResultados.style.display = "block";
-            consolaResultados.innerHTML = "<h2>📦 Analizando espectro de audio...</h2><p>El servidor IA está procesando la señal.</p>";
+            consolaResultados.innerHTML = "<h2>Analizando espectro de audio...</h2><p>El servidor IA está procesando la señal.</p>";
             
             const archivoAudio = new Blob(fragmentosAudio, { type: 'audio/webm' });
             fragmentosAudio = []; 
@@ -47,7 +47,7 @@ btnGrabar.addEventListener('click', async () => {
                 if (etiqueta.includes("spoof") || etiqueta.includes("fake")) {
                     mensajeFinal = `
                         <div style="color: #d63031;">
-                            <h1 style="font-size: 40px; margin: 0;">🔴 DEEPFAKE DETECTADO</h1>
+                            <h1 style="font-size: 40px; margin: 0;">DEEPFAKE DETECTADO</h1>
                             <p style="font-size: 22px; color: #333;">Probabilidad de voz sintética generada por IA:</p>
                             <h2 style="font-size: 48px; margin: 10px 0;">${probabilidad}%</h2>
                         </div>
@@ -55,7 +55,7 @@ btnGrabar.addEventListener('click', async () => {
                 } else if (etiqueta.includes("bonafide") || etiqueta.includes("real")) {
                     mensajeFinal = `
                         <div style="color: #27ae60;">
-                            <h1 style="font-size: 40px; margin: 0;">🟢 VOZ HUMANA</h1>
+                            <h1 style="font-size: 40px; margin: 0;">VOZ HUMANA</h1>
                             <p style="font-size: 22px; color: #333;">Probabilidad de voz auténtica:</p>
                             <h2 style="font-size: 48px; margin: 10px 0;">${probabilidad}%</h2>
                         </div>
@@ -75,13 +75,13 @@ btnGrabar.addEventListener('click', async () => {
                 btnReiniciar.style.display = "block";
 
             } catch (error) {
-                consolaResultados.innerHTML = `<h2 style="color: #d63031;">❌ Fallo de conexión</h2><p>${error.message}</p>`;
+                consolaResultados.innerHTML = `<h2 style="color: #d63031;">Fallo de conexión</h2><p>${error.message}</p>`;
                 btnReiniciar.style.display = "block";
             }
         };
 
         mediaRecorder.start();
-        btnGrabar.textContent = "🔴 Grabando (3s)...";
+        btnGrabar.textContent = "Grabando (3s)...";
         btnGrabar.classList.add("grabando");
 
         setTimeout(() => {
