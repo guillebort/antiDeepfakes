@@ -1,5 +1,5 @@
 from fastapi import FastAPI, File, UploadFile, HTTPException
-from fastapi.middleware.cors import CORSMiddleware  # <-- 1. Añade esta importación
+from fastapi.middleware.cors import CORSMiddleware 
 from transformers import pipeline
 import shutil
 import os
