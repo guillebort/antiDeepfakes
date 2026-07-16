@@ -4,9 +4,8 @@ const btnGrabar = document.getElementById('btn-grabar');
 const btnReiniciar = document.getElementById('btn-reiniciar');
 let fragmentosAudio = [];
 
-// --- ACCIÓN AL GRABAR ---
+// grabar
 btnGrabar.addEventListener('click', async () => {
-    // Bloqueamos el botón instantáneamente para evitar clics fantasma
     btnGrabar.disabled = true; 
     
     try {
@@ -16,10 +15,8 @@ btnGrabar.addEventListener('click', async () => {
         mediaRecorder.ondataavailable = evento => fragmentosAudio.push(evento.data);
         
         mediaRecorder.onstop = async () => {
-            // 1. DESAPARECE EL BOTÓN Y EL TÍTULO INICIAL
             contenedorInicio.style.display = "none";
             
-            // 2. APARECE LA PANTALLA DE CARGA EN EL CENTRO
             consolaResultados.style.display = "block";
             consolaResultados.innerHTML = "<h2>📦 Analizando espectro de audio...</h2><p>El servidor IA está procesando la señal.</p>";
             
@@ -46,7 +43,7 @@ btnGrabar.addEventListener('click', async () => {
 
                 let mensajeFinal = "";
                 
-                // 3. MOSTRAMOS EL RESULTADO EN EL CENTRO
+                // mostramos el resultado
                 if (etiqueta.includes("spoof") || etiqueta.includes("fake")) {
                     mensajeFinal = `
                         <div style="color: #d63031;">
@@ -75,7 +72,6 @@ btnGrabar.addEventListener('click', async () => {
                 
                 consolaResultados.innerHTML = mensajeFinal;
                 
-                // 4. APARECE EL BOTÓN DE REINICIAR ARRIBA A LA DERECHA
                 btnReiniciar.style.display = "block";
 
             } catch (error) {
@@ -98,7 +94,7 @@ btnGrabar.addEventListener('click', async () => {
     }
 });
 
-// --- ACCIÓN AL REINICIAR ---
+// accion al reiniciar
 btnReiniciar.addEventListener('click', () => {
     btnReiniciar.style.display = "none";
     consolaResultados.style.display = "none";
@@ -106,5 +102,5 @@ btnReiniciar.addEventListener('click', () => {
     
     btnGrabar.textContent = "🎙️ Iniciar Escaneo";
     btnGrabar.classList.remove("grabando");
-    btnGrabar.disabled = false; // <--- Volvemos a encender el botón
+    btnGrabar.disabled = false; 
 });
