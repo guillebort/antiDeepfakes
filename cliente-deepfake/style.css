@@ -1,0 +1,61 @@
+/* Hacemos que el body ocupe toda la pantalla y centre todo vertical y horizontalmente */
+body { 
+    font-family: system-ui, -apple-system, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    background: #f4f4f9; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: 100vh; 
+    text-align: center; 
+}
+
+/* Contenedor inicial (Título y botón grabar) */
+#contenedor-inicio { transition: opacity 0.3s ease; }
+
+/* Botón gigante de grabar */
+#btn-grabar { 
+    padding: 20px 40px; 
+    font-size: 22px; 
+    background: #e74c3c; 
+    color: white; 
+    border: none; 
+    border-radius: 50px; 
+    cursor: pointer; 
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+    transition: 0.3s;
+}
+#btn-grabar.grabando { background: #c0392b; animation: pulse 1.5s infinite; }
+
+/* Tarjeta de resultados (Oculta al inicio, se mostrará en el centro) */
+#consola-resultados { 
+    display: none; 
+    background: white; 
+    padding: 40px; 
+    border-radius: 15px; 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1); 
+    max-width: 600px; 
+    width: 90%; 
+}
+
+/* Botón de reiniciar (Flotando en otra parte: esquina superior derecha) */
+#btn-reiniciar { 
+    position: fixed; 
+    top: 30px; 
+    right: 30px; 
+    padding: 12px 25px; 
+    font-size: 16px; 
+    background: #2c3e50; 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    display: none; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+    transition: 0.3s;
+}
+#btn-reiniciar:hover { background: #1a252f; transform: translateY(-2px); }
+
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
