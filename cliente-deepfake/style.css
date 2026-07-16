@@ -12,7 +12,7 @@ body {
     text-align: center; 
 }
 
-/* Contenedor inicial (Título y botón grabar) */
+/* Contenedor inicial*/
 #contenedor-inicio { transition: opacity 0.3s ease; }
 
 /* Botón gigante de grabar */
@@ -29,7 +29,7 @@ body {
 }
 #btn-grabar.grabando { background: #c0392b; animation: pulse 1.5s infinite; }
 
-/* Tarjeta de resultados (Oculta al inicio, se mostrará en el centro) */
+/* Tarjeta de resultados*/
 #consola-resultados { 
     display: none; 
     background: white; 
@@ -40,7 +40,7 @@ body {
     width: 90%; 
 }
 
-/* Botón de reiniciar (Flotando en otra parte: esquina superior derecha) */
+/* Botón de reiniciar */
 #btn-reiniciar { 
     position: fixed; 
     top: 30px; 
